@@ -1,0 +1,87 @@
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+/* Global Theme */
+:root {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-bg: #000000;        /* Deep Black */
+  --color-bg-alt: #111111;    /* Charcoal Gray */
+  --color-text: #ffffff;      /* White */
+  --color-text-muted: #e0e0e0;/* Light Gray */
+  --color-accent: #bfa77f;  
+  --link-color: #d8aa5b;    /* Desaturated Gold (optional) */
+}
+
+/* Apply global styles */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Headings (Editorial Look) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  animation: fade-bounce 1.5s infinite;
+}
+
+/* Animation for scroll hint */
+@keyframes fade-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-item img {
+  transition: all 0.3s ease;
+}
+
+.portfolio-item:hover img {
+  filter: brightness(1.1);
+}
+
+.portfolio-item-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-item-title {
+  opacity: 1;
+}
